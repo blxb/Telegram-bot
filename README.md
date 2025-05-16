@@ -9,6 +9,7 @@ A great telegram bot that has some interesting commands to play with.
 5. Go to telegram channel @BotFather
 6. Generate your bot and copy it's token
 7. In the line where is the variable bot insert your bots token
+8. Dont forget to teach the machine in google teachable machine and download the keras model of your machine and copy both labels.txt and keras_model.h5 or however it is called for you into folder "model"
 
 # DO NOT SHARE YOUR BOT TOKEN TO ANYBODY ELSE, IF THEY ARE ASKING FOR IT THEY ARE TRYING TO STEAL YOUR BOT AND USING AGAINST SOMETHING OFFENSIVE AND YOU'LL GET THE BLAME FOR IT
 9. Anyways after inserting the bots token run the script
