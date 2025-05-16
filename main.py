@@ -75,14 +75,19 @@ def handle_docs_photo(message):
     bot.send_message(message.chat.id, f"I think this is.. {label}")
 
 @bot.message_handler(commands=['pass'])
-def send_password(message):
-    bot.reply_to(message, "How long do you want to have your password? For exmpl. 10")
+def password_generation(message):
+    bot.reply_to(message, "How long do you want your password to be? For example: 10")
+    bot.register_next_step_handler(message, handle_password_length)
+    
+def handle_password_length(message):
     if message.text.isdigit():
         password_len = int(message.text)
-        password = gen_pass(password_len)  # Getting the length of the password, for exmpl. 10 symbols
+        password = gen_pass(password_len)
         bot.reply_to(message, f"Your generated password: {password}")
     else:
-        return bot.send_message(message.chat.id, "You have to reply with numbers e.g. 10")
+        bot.reply_to(message, "Please enter a valid number (e.g., 10).")
+        # Optionally re-register to try again:
+        bot.register_next_step_handler(message, handle_password_length)    
 
 @bot.message_handler(commands=['emoji'])
 def send_emoji(message):
